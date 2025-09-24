@@ -1,101 +1,170 @@
-# Solution 
+Parfait, je comprends la nouvelle mécanique, merci pour la précision :
 
-**Étape 1 : Découverte de l’arborescence**
-Lancer le challenge :
+* **Étape 2 (Hulk)** : dossier en **750**, dedans on trouve le premier indice → “Le trésor n’est pas accessible aux simples curieux. Seuls les pirates peuvent ouvrir la voie.”
+* **Étape 3 (Anne Bonny)** : le vrai fil conducteur → “Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau.”
+  → ça oriente vers **Luffy** (utilisateur pirate), qui doit aller dans `/home/luffy/`.
+* Dans `/home/luffy/` → un `README.txt` + un `script.sh`.
+  → Le `README` dit d’exécuter le script.
+* Quand l’étudiant exécute le script → **erreur volontaire** disant qu’une variable d’environnement manque.
+* Il doit analyser les processus (`ps aux`, `/proc/$PID/environ`) pour retrouver la valeur manquante → `cybercorsaire`.
+* Une fois exportée (`export CLE=cybercorsaire`), le script révèle le **flag final**.
+
+---
+
+Voici le **corrigé complet** en tenant compte de cette mécanique :
+
+---
+
+# Solution – BASH-CTF (corrigé pas-à-pas)
+
+## Étape 1 : Lancer le challenge
+
 ```bash
 ./start
 ```
-Explorer le dossier `~/treasure/` :
+
+## Étape 2 : Identifier le dossier spécial (Hulk)
+
+Lister les permissions des dossiers :
+
 ```bash
-ls ~/treasure/
+ls -ld ~/treasure/*
 ```
-Observation : plusieurs dossiers au nom de pirates (Barbe_Noire, Anne_Bonny, Mary_Read, …). Chaque dossier contient un fichier `funfact.txt`.
 
------------------------------
-**Étape 2 : Lecture des indices**
+Observation : un seul dossier (Hulk) est en **rwxr-x--- (750)**.
+Entrer dedans :
 
-Parcourir les fichiers :
-`cat Charles_Vane/funfact.txt`
-
-Contenu :
-`Le trésor n’est pas accessible aux simples curieux. Seuls les pirates peuvent ouvrir la voie.`
-→ Indice que seuls les membres du groupe pirates pourront progresser.
-
-Vérifier les permissions spéciales :
-
-ls -ld Anne_Bonny
-
-
-→ rwxr-x--- (750), accessible uniquement par le groupe pirates.
-
-Étape 3 : Rejoindre le groupe pirates
-
-Ajouter l’utilisateur courant au groupe pirates :
-
-sudo usermod -aG pirates $USER
-newgrp pirates
-
-
-→ Permet maintenant d’entrer dans Anne_Bonny/.
-
-Étape 4 : Trouver le script caché
-
-Lire le fichier funfact.txt de Anne_Bonny :
-
-cat Anne_Bonny/funfact.txt
-
+```bash
+cd ~/treasure/Hulk
+cat indice.txt
+```
 
 Contenu :
 
-script a exécuter
+```
+Le trésor n’est pas accessible aux simples curieux.
+Seuls les pirates peuvent ouvrir la voie.
+```
 
+→ Conclusion : il faut utiliser un **compte pirate** pour progresser.
 
-Lister le contenu :
+---
 
-ls Anne_Bonny/
+## Étape 3 : Piste d’Anne Bonny
 
+Lire le fichier d’Anne Bonny :
 
-→ Le script est présent (ex. script.sh).
+```bash
+cat ~/treasure/Anne_Bonny/funfact.txt
+```
 
-Étape 5 : Exécuter le script
+Contenu :
 
-Rendre le script exécutable et l’exécuter :
+```
+Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau.
+```
 
-chmod +x Anne_Bonny/script.sh
-./Anne_Bonny/script.sh
+→ Allusion directe à **Luffy (chapeau de paille)**.
+Il faut aller dans `/home/luffy/`.
 
+---
 
-Le script lance un processus en arrière-plan contenant le flag.
+## Étape 4 : Explorer le home de Luffy
 
-Étape 6 : Analyser les processus
+```bash
+cd /home/luffy
+ls
+```
+
+Contenu :
+
+* `README.txt`
+* `script.sh`
+
+Lire le `README` :
+
+```bash
+cat README.txt
+```
+
+Indique :
+
+```
+Exécute le script pour poursuivre ta quête.
+```
+
+---
+
+## Étape 5 : Exécuter le script
+
+```bash
+chmod +x script.sh
+./script.sh
+```
+
+Résultat :
+
+```
+Erreur : variable d’environnement manquante !
+Indice : Le secret circule déjà dans les veines de ton système.
+Cherche dans ce qui vit en mémoire…
+```
+
+→ Le script a besoin d’une clé (mais laquelle ?).
+
+---
+
+## Étape 6 : Analyse des processus
 
 Lister les processus liés au script :
 
+```bash
 ps aux | grep script
+```
 
+Récupérer le PID du script, puis examiner son environnement :
 
-ou
+```bash
+strings /proc/<PID>/environ
+```
 
-ps -ef | grep Anne_Bonny
+On y trouve :
 
+```
+CLE=cybercorsaire
+```
 
-Observation : un processus contient en mémoire le flag.
+---
 
-Étape 7 : Récupérer le flag dans le processus
+## Étape 7 : Définir la variable manquante
 
-Examiner la mémoire ou la commande lancée :
+Ajouter la variable dans l’environnement :
 
-ps -ef | grep FLAG
+```bash
+export CLE=cybercorsaire
+```
 
+---
 
-ou, si besoin, utiliser strings sur /proc/<PID>/environ ou /proc/<PID>/cmdline :
+## Étape 8 : Relancer le script
 
-strings /proc/<PID>/environ | grep FLAG
+```bash
+./script.sh
+```
 
+Résultat :
 
-Résultat attendu :
+```
+Félicitations moussaillon !
+Voici ton trésor :
 
-FLAG{mot_de_passe_du_pirate}
-
-Flag final
 FLAG{Tresor_Pirate_2025}
+```
+
+---
+
+## Flag final
+
+```
+FLAG{Tresor_Pirate_2025}
+```
