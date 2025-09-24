@@ -7,7 +7,7 @@
 ```
 Un fichier **README.md** est déjà présent à la racine de `~/challenge/`.
 Son rôle est d’introduire le contexte, mais il sert aussi de premier indice :
-*Va voir chez les super-héros : un d’entre eux porte un signe distinctif* soit aller dans le groupe superheros et regarder les permissions des dossiers.
+*Va voir chez les super-héros : un d’entre eux porte un signe distinctif* soit aller dans le groupe `superheros` et regarder les permissions des dossiers.
 
 ---
 
