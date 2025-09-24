@@ -14,7 +14,7 @@ Lister les permissions des dossiers :
 ls -ld ~/challenge/*
 ```
 
-Observation : un seul dossier (Hulk) est en **rwxr-x--- (750)**.
+Observation : un seul dossier (Hulk) est en **rwxr-xr-- (754)**.
 Entrer dedans :
 
 ```bash
