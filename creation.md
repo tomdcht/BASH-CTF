@@ -201,12 +201,12 @@ getfacl ~/challenge/pirates/Anne_Bonny
 ```
 * Vérifier le script (erreur attendue sans clé) :
 ```bash
-./decrypt.sh
+./flag.sh
 ```
 * Lancer avec la clé trouvée dans `ps aux` :
 ```bash
 export Key=cybercorsaire
-./decrypt.sh
+./flag.sh
 ```
 
 → Résultat attendu :
