@@ -3,7 +3,7 @@
 ## Étape 1 : Lancer le challenge
 
 ```bash
-./start
+sudo ./start
 ```
 Un fichier **README.md** est déjà présent à la racine de `~/challenge/`.
 Son rôle est d’introduire le contexte, mais il sert aussi de premier indice :
