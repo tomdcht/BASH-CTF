@@ -1,7 +1,7 @@
 #!/bin/bash
 # cleanup.sh - Nettoyage du CTF (sans supprimer start.sh et cleanup.sh)
 
-CHALLENGE_DIR="$HOME/challenge"
+CHALLENGE_DIR="."
 
 echo "[*] Nettoyage du challenge dans $CHALLENGE_DIR..."
 
@@ -12,7 +12,7 @@ if [ ! -d "$CHALLENGE_DIR" ]; then
 fi
 
 # Supprimer tout sauf start.sh et cleanup.sh
-find "$CHALLENGE_DIR" -mindepth 1 -not -name 'start.sh' -not -name 'cleanup.sh' -exec rm -rf {} +
+find "$CHALLENGE_DIR" -mindepth 1 -not -name 'start.sh' -not -name 'cleanup.sh' -not -name 'flag.sh' -exec rm -rf {} +
 
 echo "[+] Contenu du challenge supprimé (start.sh et cleanup.sh conservés)."
 
@@ -24,7 +24,7 @@ for grp in pirates ninjas superheros; do
 done
 
 # Supprimer les utilisateurs spécifiques (ajoute ici ceux que tu avais créés pour le CTF)
-for usr in luffy zoro nami; do
+for usr in luffy sparrow naruto superman; do
     if id "$usr" &>/dev/null; then
         sudo userdel -r "$usr" && echo "[+] Utilisateur $usr supprimé."
     fi
