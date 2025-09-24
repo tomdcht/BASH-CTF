@@ -11,19 +11,18 @@
 Lister les permissions des dossiers :
 
 ```bash
-ls -ld ~/treasure/*
+ls -ld ~/challenge/*
 ```
 
 Observation : un seul dossier (Hulk) est en **rwxr-x--- (750)**.
 Entrer dedans :
 
 ```bash
-cd ~/treasure/Hulk
-cat indice.txt
+cd ~/challenge/Hulk
+cat funfact.txt
 ```
 
 Contenu :
-
 ```
 Le trésor n’est pas accessible aux simples curieux.
 Seuls les pirates peuvent ouvrir la voie.
@@ -34,15 +33,12 @@ Seuls les pirates peuvent ouvrir la voie.
 ---
 
 ## Étape 3 : Piste d’Anne Bonny
-
 Lire le fichier d’Anne Bonny :
-
 ```bash
-cat ~/treasure/Anne_Bonny/funfact.txt
+cat ~/challenge/Anne_Bonny/funfact.txt
 ```
 
 Contenu :
-
 ```
 Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau.
 ```
@@ -53,25 +49,21 @@ Il faut aller dans `/home/luffy/`.
 ---
 
 ## Étape 4 : Explorer le home de Luffy
-
 ```bash
 cd /home/luffy
 ls
 ```
 
 Contenu :
-
 * `README.txt`
 * `script.sh`
 
 Lire le `README` :
-
 ```bash
 cat README.txt
 ```
 
 Indique :
-
 ```
 Exécute le script pour poursuivre ta quête.
 ```
@@ -79,14 +71,12 @@ Exécute le script pour poursuivre ta quête.
 ---
 
 ## Étape 5 : Exécuter le script
-
 ```bash
 chmod +x script.sh
 ./script.sh
 ```
 
 Résultat :
-
 ```
 Erreur : variable d’environnement manquante !
 Indice : Le secret circule déjà dans les veines de ton système.
@@ -98,15 +88,12 @@ Cherche dans ce qui vit en mémoire…
 ---
 
 ## Étape 6 : Analyse des processus
-
 Lister les processus liés au script :
-
 ```bash
 ps aux | grep script
 ```
 
 Récupérer le PID du script, puis examiner son environnement :
-
 ```bash
 strings /proc/<PID>/environ
 ```
@@ -120,7 +107,6 @@ CLE=cybercorsaire
 ---
 
 ## Étape 7 : Définir la variable manquante
-
 Ajouter la variable dans l’environnement :
 
 ```bash
@@ -130,13 +116,11 @@ export CLE=cybercorsaire
 ---
 
 ## Étape 8 : Relancer le script
-
 ```bash
 ./script.sh
 ```
 
 Résultat :
-
 ```
 Félicitations moussaillon !
 Voici ton trésor :
@@ -147,7 +131,6 @@ FLAG{Tresor_Pirate_2025}
 ---
 
 ## Flag final
-
 ```
 FLAG{Tresor_Pirate_2025}
 ```
