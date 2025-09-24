@@ -8,4 +8,4 @@ Il a semé de nombreuses fausses pistes : indices fragmentés, permissions étra
 
 Le flag final est au format : *FLAG{mot_de_passe_du_pirate}* 
 
-**Pour commencer** : éxécute le script ./start
+**Pour commencer** : éxécute le script `./start`
