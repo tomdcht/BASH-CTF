@@ -3,38 +3,16 @@
 # Script de mise en place du CTF - BASH-CTF
 # ================================================
 
-cat << "EOF"
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣤⣤⣤⢤⣤⠄⠀⣼⠀⠠⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⡿⠟⠁⠀⠀⣿⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⢠⣿⡆⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣠⣾⡿⠿⠿⠿⠿⠟⠉⠀⠀⣀⣀⣀⣤⣾⣿⣿⣦⣀⣀⣀⠀⠀⠈⠻⠿⠿⠿⠿⢿⣷⣤⡀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠈⠻⣶⣶⣶⣶⣦⣤⣄⠀⠉⠉⠉⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠉⠉⠁⢠⣤⣴⣶⣶⣶⣶⠟⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣿⣿⣻⣿⣿⣆⠀⠀⠀⠀⠀⠀⠸⣿⡏⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣷⡀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠀⣼⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣷⡀⠀⠀⠀⢸⠀⠀⠀⠀⣾⣿⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⡄⠀⠀⢸⠀ ⢠⣾⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣆⠀⢠ ⣠⡿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠦⠀⡰⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢠⣤⣤⣤⣤⡄⣤⣤⣤⣤⣤⠀⣤⣤⣤⣤⣤⠀⠀⠀⣤⣄⠀⠀⢠⡤⠦⢤⣤⠀⣤⠀⠀⠀⣤ ⣤⣤⣤⣤⣄ ⣤⢤⣤⣤⡤
-⠀⠀⢸⡇⠀⠀⣿⣦⣤⣤⡿⠃⣿⣤⣤⣤⣤⠀⢀⣾⣃⣹⣆⠀⠹⠶⠤⢤⣤⢀⣿⠀⠀⠀⣿ ⣿⣤⣤⣤⠿⠃⣿⣤⣤⣤⣤
-⠀⠀⢸⡇⠀⠀⣿ ⠀⠈⢻⡄⣿⣤⣤⣤⣤ ⣿⠉⠉⠉⢹⣦⢹⣦⣤⣤⣼⠃⢻⣦⣤⣴⡟⠀⣿⠀⠀⠈⣷⡄⣿⣤⣤⣤⣤
-
-EOF
-# Dossier du projet
-PROJECT_DIR=$(pwd)/challenge
+# Racine du projet
+PROJECT_DIR=/challenge
 
 # Nettoyage préalable si besoin
 if [ -d "$PROJECT_DIR" ]; then
   echo "[*] Suppression de l’ancien projet..."
-  rm -rf "$PROJECT_DIR"
+  sudo rm -rf "$PROJECT_DIR"
 fi
 
-mkdir -p "$PROJECT_DIR"
+sudo mkdir -p "$PROJECT_DIR"
 cd "$PROJECT_DIR" || exit 1
 
 echo "[*] Création de l’environnement CTF dans $PROJECT_DIR"
@@ -144,10 +122,3 @@ echo "Le trésor n’est pas accessible aux simples curieux. Seuls les pirates p
 echo "Black Widow, Natasha Romanoff, est une espionne et experte en arts martiaux formée par le KGB." > superheros/Black_Widow/funfact.txt
 echo "Captain Marvel, Carol Danvers, est une pilote devenue super-héroïne après avoir acquis des pouvoirs cosmiques." > superheros/Captain_Marvel/funfact.txt
 echo "Doctor Strange, Stephen Strange, est un ancien chirurgien devenu maître des arts mystiques." > superheros/Doctor_Strange/funfact.txt
-
-# ================================================
-# Création du /home de luffy avec un indice
-# ================================================
-if [ -d /home/luffy ]; then
-  sudo -u luffy bash -c 'echo "Execute le script pour poursuivre ta quête" > ~/readme.md'
-fi
