@@ -1,40 +1,84 @@
 # Méthode de création du CTF *BASH-CTF*
 
 ## Objectif
-Construire un environnement de type CTF dans `~/treasure/` avec 3 univers (pirates, ninjas, superhéros), des permissions/pièges (chmod, ACL, groupes) et un script final nécessitant une variable d’environnement pour révéler le flag.
+Construire un environnement de type CTF dans `~/challenge/` avec 3 univers (pirates, ninjas, superhéros), des permissions/pièges (chmod, ACL, groupes) et un script final nécessitant une variable d’environnement pour révéler le flag.
 
 ---
 
 ## Étape 1 : Préparation
 Créer la racine du projet et les sous-dossiers :
 ```bash
-mkdir -p ~/treasure/{pirates,ninjas,superheros}
+mkdir -p ~/challenge/{pirates,ninjas,superheros}
 ```
-
 ---
 
 ## Étape 2 : Groupes et permissions
-Créer les groupes nécessaires :
+### Création des groupes principaux
+On crée les groupes utilisés pour restreindre les accès :
+
 ```bash
 sudo groupadd pirates
 sudo groupadd ninjas
 sudo groupadd superheros
 ```
 
-Restreindre certains accès :
+### Création des utilisateurs liés
+* **luffy** (pirate avec shell bash)
+* **sparrow** (pirate sans shell interactif)
+* **naruto** (ninja sans shell interactif)
+* **superman** (superhéros sans shell interactif)
 
 ```bash
-sudo chown root:pirates ~/treasure/pirates/Anne_Bonny
-sudo setfacl -m g:lecteurs:r-x ~/treasure/pirates/Anne_Bonny
-sudo chmod 754 ~/treasure/superheros/Hulk
+sudo useradd -m -s /bin/bash -G pirates luffy
+sudo useradd -m -s /usr/sbin/nologin -G pirates sparrow 
+sudo useradd -m -s /usr/sbin/nologin -G ninjas naruto
+sudo useradd -m -s /usr/sbin/nologin -G superheros superman 
 ```
 
+### Attribution des permissions spécifiques
+1. **Superhéros/Hulk**
+   Premier indice, accessible uniquement en lecture/exécution pour groupe et autres :
+```bash
+sudo chmod 754 ~/challenge/superheros/Hulk
+```
+
+2. **Pirates/Anne\_Bonny**
+   Accès restreint : il faut être pirate pour lire.
+```bash
+sudo chown root:pirates ~/challenge/pirates/Anne_Bonny
+sudo chmod 750 ~/challenge/pirates/Anne_Bonny
+```
+
+3. **ACL trompeuse sur Anne\_Bonny**
+   Pour brouiller les pistes :
+```bash
+sudo setfacl -m g:lecteurs:r-x ~/challenge/pirates/Anne_Bonny
+```
+
+4. **Permissions générales des autres dossiers**
+* Pirates et Ninjas : uniquement propriétaire + groupe en lecture/écriture, pas d’accès aux autres.
+* Superhéros : droits larges sur le dossier racine (777) pour induire en erreur, mais sous-dossiers restreints (640).
+
+```bash
+# Pirates
+sudo chown -R ace:pirates ~/challenge/pirates/*
+sudo chmod 640 ~/challenge/pirates/*
+
+# Ninjas
+sudo chown -R naruto:ninjas ~/challenge/ninjas/*
+sudo chmod 640 ~/challenge/ninjas/*
+
+# Superhéros
+sudo chown -R superman:superheros ~/challenge/superheros/*
+sudo chmod 777 ~/challenge/superheros
+sudo chmod 640 ~/challenge/superheros/*
+```
 ---
 
 ## Étape 3 : Dossiers Pirates
 Créer les répertoires :
 ```bash
-cd ~/treasure/pirates
+cd ~/challenge/pirates
 mkdir Barbe_Noire Anne_Bonny Mary_Read Samuel_Bellamy Bartholomew_Roberts \
      Calico_Jack Charles_Vane Benjamin_Hornigold Stede_Bonnet
 ```
@@ -57,7 +101,7 @@ echo "Stede Bonnet, riche planteur devenu pirate..." > Stede_Bonnet/funfact.txt
 ## Étape 4 : Dossiers Ninjas
 Créer les répertoires :
 ```bash
-cd ~/treasure/ninjas
+cd ~/challenge/ninjas
 mkdir Hattori_Hanzo Momochi_Sandayu Katou_Danzo Ishikawa_Goemon \
      Kirigakure_Saizo Fujibayashi_Nagato Mochizuki_Chiyome Fuma_Kotaro \
      Koga_Shushin Jinichi_Kawakami
@@ -76,7 +120,7 @@ echo "Jinichi Kawakami est considéré comme l'un des derniers véritables ninja
 ## Étape 5 : Dossiers Superhéros
 Créer les répertoires :
 ```bash
-cd ~/treasure/superheros
+cd ~/challenge/superheros
 mkdir Spider_Man Iron_Man Captain_America Thor Hulk Black_Widow \
      Captain_Marvel Doctor_Strange Black_Panther Ant_Man
 ```
@@ -143,11 +187,11 @@ vigenere_decrypt() {
 ## Étape 7 : Vérification
 * Vérifier les permissions :
 ```bash
-ls -ld ~/treasure/superheros/Hulk
+ls -ld ~/challenge/superheros/Hulk
 ```
 * Vérifier ACL :
 ```bash
-getfacl ~/treasure/pirates/Anne_Bonny
+getfacl ~/challenge/pirates/Anne_Bonny
 ```
 * Vérifier le script (erreur attendue sans clé) :
 ```bash
