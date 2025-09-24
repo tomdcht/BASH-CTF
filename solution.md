@@ -143,7 +143,6 @@ strings /proc/<PID>/environ
 ```
 
 On y trouve :
-
 ```
 Key=cybercorsaire
 ```
@@ -152,7 +151,6 @@ Key=cybercorsaire
 
 ## Étape 7 : Définir la variable manquante
 Ajouter la variable dans l’environnement :
-
 ```bash
 export Key=cybercorsaire
 ```
