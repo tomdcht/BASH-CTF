@@ -6,7 +6,7 @@ ENCRYPTED_MESSAGE="HJBK{Ktsjgr_Xzvcrf_Gpdsi}"
 if [[ -z "$Key" ]]; then
   echo "Variable d'environnement 'Key' non définie."
   echo "Message chiffré: $ENCRYPTED_MESSAGE"
-  echo "Indice: Le secret circule déjà dans les veines de ton système (regarde l>
+  echo "Indice: Le secret circule déjà dans les veines de ton système (regarde les processus actifs)."
   exit 1
 fi
 
@@ -14,6 +14,7 @@ vigenere_decrypt() {
   local message="$1" key="$2" result="" key_index=0
   key=$(echo "$key" | sed 's/ //g' | tr '[:lower:]' '[:upper:]')
   local key_length=${#key}
+
   for (( i=0; i<${#message}; i++ )); do
     char="${message:$i:1}"
     if [[ "$char" =~ [a-zA-Z] ]]; then
@@ -38,5 +39,10 @@ vigenere_decrypt() {
       result+="$char"
     fi
   done
+
   echo "$result"
 }
+
+echo "Déchiffrement en cours avec la clé: $Key"
+decrypted=$(vigenere_decrypt "$ENCRYPTED_MESSAGE" "$Key")
+echo "Message déchiffré: $decrypted"
