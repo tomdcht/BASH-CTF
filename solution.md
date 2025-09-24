@@ -123,12 +123,12 @@ Résultat :
 Félicitations moussaillon !
 Voici ton trésor :
 
-FLAG{Tresor_Pirate_2025}
+FLAG{Tresor_Pirate_Cyber}
 ```
 
 ---
 
 ## Flag final
 ```
-FLAG{Tresor_Pirate_2025}
+FLAG{Tresor_Pirate_Cyber}
 ```
