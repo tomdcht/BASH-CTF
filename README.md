@@ -7,3 +7,5 @@ Il a semé de nombreuses fausses pistes : indices fragmentés, permissions étra
 **Ton objectif :** retrouver le vrai trésor (le flag final), pour commencer découvre le dossier correct, protégé par des permissions spéciales.
 
 Le flag final est au format : *FLAG{mot_de_passe_du_pirate}* 
+
+**Pour commencer** : éxécute le script ./start
