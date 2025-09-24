@@ -18,7 +18,7 @@ Observation : un seul dossier (Hulk) est en **rwxr-xr-- (754)**.
 Entrer dedans :
 
 ```bash
-cd ~/challenge/Hulk
+cd ~/challenge/superheros/Hulk
 cat funfact.txt
 ```
 
@@ -51,10 +51,9 @@ Il faut aller dans `/home/luffy/`.
 cd /home/luffy
 ls
 ```
-
 Contenu :
 * `README.txt`
-* `script.sh`
+* `flag.sh`
 
 Lire le `README` :
 ```bash
@@ -70,8 +69,8 @@ Exécute le script pour poursuivre ta quête.
 
 ## Étape 5 : Exécuter le script
 ```bash
-chmod +x script.sh
-./script.sh
+chmod +x flag.sh
+./flag.sh
 ```
 
 Résultat :
@@ -97,7 +96,7 @@ strings /proc/<PID>/environ
 On y trouve :
 
 ```
-CLE=cybercorsaire
+Key=cybercorsaire
 ```
 
 ---
@@ -106,22 +105,20 @@ CLE=cybercorsaire
 Ajouter la variable dans l’environnement :
 
 ```bash
-export CLE=cybercorsaire
+export Key=cybercorsaire
 ```
 
 ---
 
 ## Étape 8 : Relancer le script
 ```bash
-./script.sh
+./flag.sh
 ```
 
 Résultat :
 ```
-Félicitations moussaillon !
-Voici ton trésor :
-
-FLAG{Tresor_Pirate_Cyber}
+Déchiffrement en cours avec la clé: cybercorsaire
+Message déchiffré: FLAG{Tresor_Pirate_Cyber}
 ```
 
 ---
