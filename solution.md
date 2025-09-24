@@ -18,7 +18,7 @@ Observation : un seul dossier (Hulk) est en **rwxr-xr-- (754)**.
 Entrer dedans :
 
 ```bash
-cd ~/challenge/Hulk
+cd ~/challenge/superheros/Hulk
 cat funfact.txt
 ```
 
