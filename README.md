@@ -17,4 +17,4 @@ Le flag final est au format : *FLAG{mot_de_passe_du_pirate}*
 
 
 
-*Part : Tom Dechanet, Fitiza Smirni et Maëlle Buhon*
+*Part : Tom Dechanet, Fatima-Zahra Smirni et Maëlle Buhon*
