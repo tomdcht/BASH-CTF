@@ -1,4 +1,4 @@
-# Méthode de création du CTF BASH-CTF
+# Méthode de création - BASH-CTF
 
 ## Objectif
 Construire un environnement de type CTF dans `~/challenge/` avec 3 univers (pirates, ninjas, superhéros), des permissions/pièges (chmod, ACL, groupes) et un script final nécessitant une variable d’environnement pour révéler le flag.
