@@ -27,7 +27,6 @@ Contenu :
 Le trésor n’est pas accessible aux simples curieux.
 Seuls les pirates peuvent ouvrir la voie.
 ```
-
 → Conclusion : il faut utiliser un **compte pirate** pour progresser.
 
 ---
@@ -40,9 +39,8 @@ cat ~/challenge/Anne_Bonny/funfact.txt
 
 Contenu :
 ```
-Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau.
+Un vrai pirate garde toujours son drapeau dans sa propre cale. Retourne à ton logis et hisse-le haut.
 ```
-
 → Allusion directe à **Luffy (chapeau de paille)**.
 Il faut aller dans `/home/luffy/`.
 
