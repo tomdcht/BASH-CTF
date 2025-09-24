@@ -1,4 +1,4 @@
-# Solution – BASH-CTF (corrigé pas-à-pas)
+# Solution – BASH-CTF
 
 ## Étape 1 : Lancer le challenge
 
