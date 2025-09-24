@@ -5,6 +5,55 @@
 ```bash
 ./start
 ```
+Un fichier **README.md** est déjà présent à la racine de `~/challenge/`.
+Son rôle est d’introduire le contexte, mais il sert aussi de premier indice :
+*Va voir chez les super-héros : un d’entre eux porte un signe distinctif* soit aller dans le groupe superheros et regarder les permissions des dossiers.
+
+---
+
+## Étape 2 : Identifier le dossier spécial (Hulk)
+Lister les permissions des dossiers :
+```bash
+ls -ld ~/challenge/*
+```
+
+Observation : un seul dossier se distingue par ses droits :
+* `superheros/Hulk` → rwxr-xr-- (754)
+
+Entrer dedans :
+```bash
+cd ~/challenge/superheros/Hulk
+cat funfact.txt
+```
+
+Contenu :
+```bash
+Le trésor n’est pas accessible aux simples curieux.
+Seuls les pirates peuvent ouvrir la voie.
+```
+→ Conclusion : il faut appartenir au groupe **pirates** pour progresser.
+
+---
+
+## Étape 3 : Piste d’Anne Bonny
+En explorant les dossiers pirates :
+
+```bash
+ls ~/challenge/pirates
+cd ~/challenge/pirates/Anne_Bonny
+cat funfact.txt
+```
+
+Message trouvé :
+
+```
+Un vrai pirate garde toujours son drapeau dans sa propre cale.
+Retourne à ton logis et hisse-le haut.
+```
+
+→ Cela suggère de se tourner vers le **compte luffy** dans `/home/` pour poursuivre l’aventure.
+
+---
 
 ## Étape 2 : Identifier le dossier spécial (Hulk)
 
