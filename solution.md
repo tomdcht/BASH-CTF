@@ -31,7 +31,7 @@ Contenu :
 Le trésor n’est pas accessible aux simples curieux.
 Seuls les pirates peuvent ouvrir la voie.
 ```
-→ Conclusion : il faut appartenir au groupe **pirates** pour progresser.
+→ Conclusion : il faut appartenir au groupe pirates pour progresser.
 
 Action nécessaire : changer de groupe
 ```bash
