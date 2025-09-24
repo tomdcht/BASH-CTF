@@ -1,5 +1,3 @@
 # BASH-CTF
 
 
-Piraaate
-Coucou
