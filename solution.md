@@ -33,6 +33,11 @@ Seuls les pirates peuvent ouvrir la voie.
 ```
 → Conclusion : il faut appartenir au groupe **pirates** pour progresser.
 
+Action nécessaire : changer de groupe
+```bash
+sudo usermod -aG pirates $USER
+newgrp pirates
+```
 ---
 
 ## Étape 3 : Piste d’Anne Bonny
@@ -50,7 +55,6 @@ Message trouvé :
 Un vrai pirate garde toujours son drapeau dans sa propre cale.
 Retourne à ton logis et hisse-le haut.
 ```
-
 → Cela suggère de se tourner vers le **compte luffy** dans `/home/` pour poursuivre l’aventure.
 
 ---
