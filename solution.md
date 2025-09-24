@@ -55,7 +55,7 @@ Message trouvé :
 Un vrai pirate garde toujours son drapeau dans sa propre cale.
 Retourne à ton logis et hisse-le haut.
 ```
-→ Cela suggère de se tourner vers le **compte luffy** dans `/home/` pour poursuivre l’aventure.
+→ Cela suggère de se tourner vers le compte luffy dans `/home/` pour poursuivre l’aventure.
 
 ---
 
