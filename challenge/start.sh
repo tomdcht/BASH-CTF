@@ -102,7 +102,7 @@ sudo chmod 750 "$BASE_DIR/pirates/Anne_Bonny/funfact.txt"
 echo "Execute le script pour poursuivre ta quête" | sudo tee /home/luffy/readme.md > /dev/null
 
 if [ -f "$FLAG_SRC" ]; then
-  sudo mv "$FLAG_SRC" /home/luffy/ || true
+  sudo cp "$FLAG_SRC" /home/luffy/ || true
   sudo chown luffy:$(id -gn luffy) /home/luffy/flag.sh || true
 else
   echo "[WARN] $FLAG_SRC introuvable — le flag n'a pas été déplacé."
