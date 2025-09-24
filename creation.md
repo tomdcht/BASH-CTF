@@ -95,7 +95,6 @@ echo "Le trésor n’est pas accessible aux simples curieux. Seuls les pirates p
 ## Étape 6 : Script final
 Créer un script Bash dans `~/challenge` :
 ```bash
-  GNU nano 8.4                           test                                    
 #!/bin/bash
 # Script de déchiffrement Vigenère
 
