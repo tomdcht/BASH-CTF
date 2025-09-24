@@ -26,7 +26,7 @@ Restreindre certains accès :
 ```bash
 sudo chown root:pirates ~/treasure/pirates/Anne_Bonny
 sudo setfacl -m g:lecteurs:r-x ~/treasure/pirates/Anne_Bonny
-sudo chmod 750 ~/treasure/superheros/Hulk
+sudo chmod 754 ~/treasure/superheros/Hulk
 ```
 
 ---
