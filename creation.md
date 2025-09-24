@@ -93,7 +93,7 @@ echo "Le trésor n’est pas accessible aux simples curieux. Seuls les pirates p
 
 ---
 ## Étape 6 : Script final
-Créer un script Bash dans `~/treasure` :
+Créer un script Bash dans `~/challenge` :
 ```bash
 cat << 'EOF' > ~/treasure/decrypt.sh
 #!/bin/bash
