@@ -55,46 +55,6 @@ Retourne à ton logis et hisse-le haut.
 
 ---
 
-## Étape 2 : Identifier le dossier spécial (Hulk)
-
-Lister les permissions des dossiers :
-
-```bash
-ls -ld ~/challenge/*
-```
-
-Observation : un seul dossier (Hulk) est en **rwxr-xr-- (754)**.
-Entrer dedans :
-
-```bash
-cd ~/challenge/superheros/Hulk
-cat funfact.txt
-```
-
-Contenu :
-```
-Le trésor n’est pas accessible aux simples curieux.
-Seuls les pirates peuvent ouvrir la voie.
-```
-→ Conclusion : il faut utiliser un **compte pirate** pour progresser.
-
----
-
-## Étape 3 : Piste d’Anne Bonny
-Lire le fichier d’Anne Bonny :
-```bash
-cat ~/challenge/Anne_Bonny/funfact.txt
-```
-
-Contenu :
-```
-Un vrai pirate garde toujours son drapeau dans sa propre cale. Retourne à ton logis et hisse-le haut.
-```
-→ Allusion directe à **Luffy (chapeau de paille)**.
-Il faut aller dans `/home/luffy/`.
-
----
-
 ## Étape 4 : Explorer le home de Luffy
 ```bash
 cd /home/luffy
