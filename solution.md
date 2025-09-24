@@ -60,6 +60,11 @@ Retourne à ton logis et hisse-le haut.
 ---
 
 ## Étape 4 : Explorer le home de Luffy
+Changer d’utilisateur pour devenir luffy :
+```bash
+su - luffy
+```
+Aller dans son répertoire personnel :
 ```bash
 cd /home/luffy
 ls
