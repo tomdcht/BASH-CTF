@@ -1,20 +1,3 @@
-Parfait, je comprends la nouvelle mécanique, merci pour la précision :
-
-* **Étape 2 (Hulk)** : dossier en **750**, dedans on trouve le premier indice → “Le trésor n’est pas accessible aux simples curieux. Seuls les pirates peuvent ouvrir la voie.”
-* **Étape 3 (Anne Bonny)** : le vrai fil conducteur → “Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau.”
-  → ça oriente vers **Luffy** (utilisateur pirate), qui doit aller dans `/home/luffy/`.
-* Dans `/home/luffy/` → un `README.txt` + un `script.sh`.
-  → Le `README` dit d’exécuter le script.
-* Quand l’étudiant exécute le script → **erreur volontaire** disant qu’une variable d’environnement manque.
-* Il doit analyser les processus (`ps aux`, `/proc/$PID/environ`) pour retrouver la valeur manquante → `cybercorsaire`.
-* Une fois exportée (`export CLE=cybercorsaire`), le script révèle le **flag final**.
-
----
-
-Voici le **corrigé complet** en tenant compte de cette mécanique :
-
----
-
 # Solution – BASH-CTF (corrigé pas-à-pas)
 
 ## Étape 1 : Lancer le challenge
