@@ -100,8 +100,8 @@ Créer un script Bash dans `~/challenge` :
 
 ENCRYPTED_MESSAGE="HJBK{Ktsjgr_Xzvcrf_Gpdsi}"
 
-if [[ -z "$Decrypt_Key" ]]; then
-  echo "Variable d'environnement 'Decrypt_Key' non définie."
+if [[ -z "$Key" ]]; then
+  echo "Variable d'environnement 'Key' non définie."
   echo "Message chiffré: $ENCRYPTED_MESSAGE"
   echo "Indice: Le secret circule déjà dans les veines de ton système (regarde les processus actifs)."
   exit 1
@@ -138,8 +138,8 @@ vigenere_decrypt() {
   echo "\$result"
 }
 
-echo "Déchiffrement en cours avec la clé: \$Decrypt_Key"
-decrypted=\$(vigenere_decrypt "\$ENCRYPTED_MESSAGE" "\$Decrypt_Key")
+echo "Déchiffrement en cours avec la clé: \$Key"
+decrypted=\$(vigenere_decrypt "\$ENCRYPTED_MESSAGE" "\$Key")
 echo "Message déchiffré: \$decrypted"
 EOF
 
@@ -162,7 +162,7 @@ getfacl ~/treasure/pirates/Anne_Bonny
 ```
 * Lancer avec la clé trouvée dans `ps aux` :
 ```bash
-export Decrypt_Key=cybercorsaire
+export Key=cybercorsaire
 ./decrypt.sh
 ```
 
