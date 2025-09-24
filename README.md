@@ -1,5 +1,5 @@
 # BASH-CTF⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
 **Contexte :**
 Un pirate a caché son trésor numérique dans l’arborescence ~/challenge/. 
 Il a semé de nombreuses fausses pistes : indices fragmentés, permissions étranges, ACL trompeuses. Le coffre final est à la fois invisible et protégé. 
