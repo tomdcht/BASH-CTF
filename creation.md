@@ -17,6 +17,7 @@ mkdir -p ~/treasure/{pirates,ninjas,superheros}
 Créer les groupes nécessaires :
 ```bash
 sudo groupadd pirates
+sudo groupadd ninjas
 sudo groupadd superheros
 ```
 
@@ -41,7 +42,7 @@ mkdir Barbe_Noire Anne_Bonny Mary_Read Samuel_Bellamy Bartholomew_Roberts \
 Contenu principal :
 ```bash
 echo "Blackbeard était célèbre pour attacher des mèches enflammées sous son chapeau pour effrayer ses ennemis." > Barbe_Noire/funfact.txt
-echo "Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau" > Anne_Bonny/funfact.txt
+echo "Un vrai pirate garde toujours son drapeau dans sa propre cale. Retourne à ton logis et hisse-le haut." > Anne_Bonny/funfact.txt
 echo "Mary Read se déguisa souvent en homme..." > Mary_Read/funfact.txt
 echo "Samuel Bellamy était connu comme le 'Prince des Pirates'..." > Samuel_Bellamy/funfact.txt
 echo "Bartholomew Roberts captura plus de 470 navires..." > Bartholomew_Roberts/funfact.txt
