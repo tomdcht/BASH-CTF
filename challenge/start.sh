@@ -1,13 +1,12 @@
 #!/bin/bash
 
 KEY="KEY{cybercorsaire}"   
-HOME=/home
+HOME=$(pwd)
 # Lancer un processus détaché
 (
     # Changer le nom du processus avec exec -a
     exec -a "$FLAG" bash -c 'while true; do sleep 2h; done'
 ) &
-
 
 sudo groupadd pirates
 sudo groupadd ninjas
@@ -18,25 +17,35 @@ sudo useradd -m -s /usr/sbin/nologin -G pirates sparrow
 sudo useradd -m -s /usr/sbin/nologin -G ninjas naruto
 sudo useradd -m -s /usr/sbin/nologin -G superheros superman 
 
-cd challenge
 
 #Création de l'arborescence
 mkdir -p {pirates/{Barbe_Noire,Anne_Bonny,Mary_Read,Samuel_Bellamy,Bartholomew_Roberts,Calico_Jack,Charles_Vane,Benjamin_Hornigold,Stede_Bonnet},ninjas/{Hattori_Hanzo,Momochi_Sandayu,Katou_Danzo,Ishikawa_Goemon,Kirigakure_Saizo,Fujibayashi_Nagato,Mochizuki_Chiyome,Fuma_Kotaro,Koga_Shushin,Jinichi_Kawakami},superheros/{Spider_Man,Iron_Man,Captain_America,Thor,Hulk,Black_Widow,Captain_Marvel,Doctor_Strange,Black_Panther,Ant_Man}}
 
 #Configuration des permissions sur les dossiers
-sudo chown -R ace:pirates pirates/*  
+sudo chown -R sparrow $HOME/pirates/ 
+sudo chgrp -R pirates $HOME/pirates/
+
+cd $HOME
 sudo chmod 640 Barbe_Noire Anne_Bonny Mary_Read Samuel_Bellamy Bartholomew_Roberts Calico_Jack Charles_Vane Benjamin_Hornigold Stede_Bonnet
 
-sudo chown -R naruto:ninja ninjas/*
+sudo chown -R naruto $HOME/ninjas/
+sudo chgrp -R ninjas $HOME/ninjas/
+
+cd $HOME
 sudo chmod 640 Hattori_Hanzo Momochi_Sandayu Katou_Danzo Ishikawa_Goemon Kirigakure_Saizo Fujibayashi_Nagato Mochizuki_Chiyome Fuma_Kotaro Koga_Shushin Jinichi_Kawakami
 
-sudo chown -R superman:superheros superheros/*
-sudo chmod 777 superheros
+sudo chown -R superman $HOME/superheros/
+sudo chgrp -R superheros $HOME/superheros/
+
+sudo chmod 777 $HOME/superheros
+cd $HOME
 sudo chmod 640 Spider_Man Iron_Man Captain_America Thor Hulk Black_Widow Captain_Marvel Doctor_Strange Black_Panther Ant_Man
+
+cd ..
 
 # ========== Remplissage des fichiers pirates ========== 
 
-echo "Blackbeard était célèbre pour attacher des mèches enflammées sous son chapeau pour effrayer ses ennemis." > Barbe_Noire/funfact.txt  
+echo "Blackbeard était célèbre pour attacher des mèches enflammées sous son chapeau pour effrayer ses ennemis." > pirates/Barbe_Noire/funfact.txt  
 
 echo " Récupère ton chapeau de paille et trouve ton drapeau sur ton bateau" > pirates/Anne_Bonny/funfact.txt  
 
@@ -81,7 +90,9 @@ echo "Spider-Man, alias Peter Parker, a obtenu ses pouvoirs après avoir été m
 
 echo "Iron Man, Tony Stark, est un génie inventeur avec une armure high-tech qui lui permet de voler et de se battre." > superheros/Iron_Man/funfact.txt 
 
- echo "Captain America, Steve Rogers, est un super-soldat créé pendant la Seconde Guerre mondiale." > Captain_America/funfact.txt echo "Thor est un dieu nordique du tonnerre, reconnu pour son marteau Mjolnir doté de pouvoirs magiques." > superheros/Thor/funfact.txt  
+echo "Captain America, Steve Rogers, est un super-soldat créé pendant la Seconde Guerre mondiale." > pirates/Captain_America/funfact.txt 
+
+echo "Thor est un dieu nordique du tonnerre, reconnu pour son marteau Mjolnir doté de pouvoirs magiques." > superheros/Thor/funfact.txt  
 
 echo " Le trésor n’est pas accessible aux simples curieux. Seuls les pirates peuvent ouvrir la voie. " > superheros/Hulk/funfact.txt  
 
@@ -94,7 +105,7 @@ echo "Doctor Strange, Stephen Strange, est un ancien chirurgien devenu maître d
 # ========== Attribution des permissions générales ==========
 
 # L'utilisateur doit pouvoir en premier lieu accéder à ce dossier contenant le premier indice
-sudo chmod 754 ~/treasure/superheros/Hulk 
+sudo chmod 754 superheros/Hulk 
 
 # L'utilisateur doit devenir un pirate pour accéder à ce dossier
 sudo chown -R root:pirates pirates/Anne_Bonny/funfact.txt
