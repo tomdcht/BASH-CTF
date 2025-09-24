@@ -83,8 +83,6 @@ Indice : Le secret circule déjà dans les veines de ton système.
 Cherche dans ce qui vit en mémoire…
 ```
 
-→ Le script a besoin d’une clé (mais laquelle ?).
-
 ---
 
 ## Étape 6 : Analyse des processus
